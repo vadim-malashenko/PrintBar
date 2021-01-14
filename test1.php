@@ -6,8 +6,8 @@ function word_count(string $text): array {
 
     return array_reduce(
         preg_split('#\s+#', preg_replace('#[^\w\s]#u', ' ', $text)),
-        static fn (array $counters, string $word): array => $word ?
-            [$word => 1 + ($counters[$word] ?? 0)] + $counters
+        static fn (array $counters, string $word): array => $word
+            ? [$word => 1 + ($counters[$word] ?? 0)] + $counters
             : $counters,
         []
     );
