@@ -1,0 +1,36 @@
+<body>
+
+    <div id="test2">
+        <canvas width="1000" height="1000"></canvas>
+        <br/>
+        <button>Grow and Rotate</button>
+    </div>
+
+    <script>
+
+        window.addEventListener('load', ev => {
+
+            const container = document.getElementById('test2')
+            const canvas = container.querySelector(':scope canvas')
+            const button = container.querySelector(':scope button')
+
+            const rect = (width, height, angle = 0) => {
+                with(context = canvas.getContext('2d')) {
+                    save()
+                    clearRect(0, 0, canvas.width, canvas.height)
+                    translate(canvas.width / 2, canvas.height / 2)
+                    rotate(angle)
+                    stroke()
+                    strokeRect(-width / 2, -height / 2, width, height)
+                    restore()
+                }
+            }
+
+            rect(200, 100)
+            button.addEventListener('click', ev => rect(300, 200, Math.PI / 4))
+
+        })
+
+    </script>
+
+</body>
