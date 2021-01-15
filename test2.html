@@ -15,7 +15,7 @@
             const button = container.querySelector(':scope button')
 
             const rect = (width, height, angle = 0) => {
-                with(context = canvas.getContext('2d')) {
+                with(canvas.getContext('2d')) {
                     save()
                     clearRect(0, 0, canvas.width, canvas.height)
                     translate(canvas.width / 2, canvas.height / 2)
